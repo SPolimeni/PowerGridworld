@@ -63,8 +63,8 @@ def make_env_config(system_load_rescale_factor=0.65, rescale_spaces=True):
     pf_config = {
         "cls": OpenDSSSolver,
         "config": {
-            "feeder_file": "ieee_13_dss/IEEE13Nodeckt.dss",
-            "loadshape_file": "ieee_13_dss/annual_hourly_load_profile.csv",
+            "feeder_file": "ieee_13_dss\\IEEE13Nodeckt.dss",
+            "loadshape_file": "ieee_13_dss\\annual_hourly_load_profile.csv",
             "system_load_rescale_factor": system_load_rescale_factor,
         }
     }

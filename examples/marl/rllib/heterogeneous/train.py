@@ -90,7 +90,7 @@ def main(**args):
     # Run the trial.
     experiment = tune.run(
         args["run"],
-        local_dir=args["local_dir"],
+        storage_path =args["local_dir"],
         checkpoint_freq=1,
         checkpoint_at_end=True,
         checkpoint_score_attr="episode_reward_mean",

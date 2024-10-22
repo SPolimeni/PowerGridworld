@@ -9,7 +9,7 @@ from gridworld.log import logger
 from gridworld.distribution_system.powerflow import PowerFlowSolver
 
 
-DSS_DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/')
+DSS_DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 
 
 class OpenDSSSolver(PowerFlowSolver):
@@ -36,7 +36,9 @@ class OpenDSSSolver(PowerFlowSolver):
         import opendssdirect as dss
         self.dss = dss
         self.dss_data_path = os.path.join(DSS_DATA_DIR, feeder_file)
-        self.dss.run_command("Redirect " + self.dss_data_path)
+        command = f'Redirect "{self.dss_data_path}"'
+        self.dss.run_command(command)
+        # self.dss.run_command("Redirect " + self.dss_data_path)
 
         self.system_load_rescale_factor = system_load_rescale_factor
 
